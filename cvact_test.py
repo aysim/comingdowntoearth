@@ -34,15 +34,12 @@ if __name__ == '__main__':
 
     # Initialize network wrapper
     if opt.resume:
-        print('RESUME: ', opt.resume)
-        #opt.rgan_checkpoint = os.path.join('/storage/slurm/toker/checkpoints/CVACT/different_woreluattentioncvact_3unet-skip6_basic_lrg0.0001_lrd0.0001_lrr0.0001_batch32_l1w100_retl1w_1000_HN_1.0_HN1decay_0.1HN2decay_0.05HN3decay_0.01HN4decay_0.01HN5decay_0.01', 'rgan_ckpt_ep180.pth')
-        opt.rgan_checkpoint = os.path.join('/storage/user/toker/coming_dte_ckp/cvact', 'rgan_best_ckpt.pth')
+        opt.rgan_checkpoint = os.path.join('./placeholder_checkpoint_path', 'rgan_best_ckpt.pth')
+
     rgan_wrapper = rgan_wrapper_cvact.RGANWrapper(opt, log_file, generator, discriminator, retrieval)
     # Configure data loader
-    val_dataset = CVACT(use_polar=opt.polar, isTrain=False, transform_op=ToTensor())
+    val_dataset = CVACT(root= opt.data_root, all_data_list = opt.data_list, use_polar=opt.polar, isTrain=False, transform_op=ToTensor())
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=1, shuffle=False, num_workers=0)
-    #val_dataset = CVACT_test(use_polar=True, transform_op=ToTensor())
-    #val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=1, shuffle=False, num_workers=0)
 
     rgan_wrapper.generator.eval()
     rgan_wrapper.retrieval.eval()
@@ -51,7 +48,7 @@ if __name__ == '__main__':
     utm_v = []
     item_ids = []
     for i, (data, utm)in enumerate(val_loader):
-        log_print ('#of {:d}'.format(i))
+        print (i)
         rgan_wrapper.set_input_cvact(data, utm)
         rgan_wrapper.eval_model()
         fake_street_batches_v.append(rgan_wrapper.fake_street_out_val.cpu().data)

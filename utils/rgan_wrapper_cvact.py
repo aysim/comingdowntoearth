@@ -129,7 +129,7 @@ class RGANWrapper(BaseModel):
         if last_ckpt:
             ckpt_name = 'rgan_last_ckpt.pth'
         elif is_best:
-            ckpt_name = 'cvusa_best_ckpt.pth'
+            ckpt_name = 'rgan_best_ckpt.pth'
         else:
             ckpt_name = 'rgan_ckpt_ep{}.pth'.format(epoch + 1)
         ckpt_path = os.path.join(out_dir, ckpt_name)
@@ -141,10 +141,7 @@ class RGANWrapper(BaseModel):
 
         ckpt_path = self.opt.rgan_checkpoint
         ckpt = torch.load(ckpt_path)
-        self.opt.start_epoch = 181
         self.ret_best_acc = ckpt['best_acc']
-        #print(
-        #    'Load ckpt from {}, reset start epoch {}, best acc {}'.format(ckpt_path, self.opt.start_epoch, self.ret_best_acc))
 
         # Load net state
         generator_dict = ckpt['generator_model_dict']
@@ -152,14 +149,13 @@ class RGANWrapper(BaseModel):
         retrieval_dict = ckpt['retriebal_model_dict']
 
         self.generator.load_state_dict(generator_dict, strict=False)
-        self.optimizer = ckpt['optimizer_G_dict']
-        #self.optimizer_G.load_state_dict(ckpt['optimizer_G_dict'], strict=False)
+        self.optimizer_G = ckpt['optimizer_G_dict']
 
         self.discriminator.load_state_dict(discriminator_dict)
-        self.optimizer_D.load_state_dict(ckpt['optimizer_D_dict'])
+        self.optimizer_D = ckpt['optimizer_D_dict']
 
         self.retrieval.load_state_dict(retrieval_dict)
-        self.optimizer_R.load_state_dict(ckpt['optimizer_R_dict'])
+        self.optimizer_R = ckpt['optimizer_R_dict']
 
 
 

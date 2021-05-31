@@ -330,7 +330,7 @@ class PixelDiscriminator(nn.Module):
     def forward(self, input):
         return self.net(input)
 
-
+#Modified version of "Image-to-Image Translation with Conditional Adversarial Networks" paper
 class NLayerDiscriminator(nn.Module):
     def __init__(self, input_c, output_c, ndf=64, n_layers=3, norm_layer=nn.InstanceNorm2d):
         super(NLayerDiscriminator, self).__init__()

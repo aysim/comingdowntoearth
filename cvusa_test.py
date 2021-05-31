@@ -32,9 +32,7 @@ if __name__ == '__main__':
 
     # Initialize network wrapper
     if opt.resume:
-        #opt.rgan_checkpoint = os.path.join('./placeholder_checkpoint_path')
-        #opt.rgan_checkpoint = os.path.join('/storage/slurm/toker/checkpoints/SAFA8/sameasbest_resnet34_onlyfeaturemaptoretrievaldifatt3unet-skip6_basic_lrg0.0001_lrd0.0001_lrr0.0001_batch32_l1w100_retl1w_1000_HN_1.0_HN1decay_0.1HN2decay_0.05HN3decay_0.01HN4decay_0.01HN5decay_0.01', 'rgan_best_ckpt.pth')
-        opt.rgan_checkpoint = os.path.join('/storage/user/toker/coming_dte_ckp/cvusa', 'rgan_best_ckpt.pth')
+        opt.rgan_checkpoint = os.path.join('./placeholder_checkpoint_path', 'rgan_best_ckpt.pth')
 
     rgan_wrapper = rgan_wrapper.RGANWrapper(opt, log_file, generator, discriminator, retrieval)
     # Configure data loader
@@ -43,8 +41,6 @@ if __name__ == '__main__':
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=0)
 
     log_print('Load test dataset from {}: val_set={}'.format(opt.data_root, len(val_dataset)))
-    log_print('Best recall one accuracy: {}'.format(rgan_wrapper.ret_best_acc))
-
     log_print('length of val loader: {:d}'.format(len(val_loader)))
 
     rgan_wrapper.generator.eval()
@@ -54,7 +50,7 @@ if __name__ == '__main__':
     item_ids = []
 
     for i, data in enumerate(val_loader):
-        log_print ('#of {:d}'.format(i))
+        print (i)
         rgan_wrapper.set_input(data)
         rgan_wrapper.eval_model()
         fake_street_batches_v.append(rgan_wrapper.fake_street_out_val.cpu().data)

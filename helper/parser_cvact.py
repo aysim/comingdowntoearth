@@ -18,15 +18,14 @@ class Parser():
         parser.add_argument('--start_epoch', type=int, default=0)
 
         #data parameters
+        parser.add_argument('--data_root', type=str, default= './placeholder_data_path')
+        parser.add_argument('--data_list', type=str, default= './placeholder_data_list')
         parser.add_argument('--polar', default=True, action='store_true')
         parser.add_argument('--save_step', type=int, default=10)
         parser.add_argument('--rgan_checkpoint', type=str, default=None)
 
         #train parameters
         parser.add_argument("--n_epochs", type=int, default=200, help="number of epochs of combined training")
-        parser.add_argument("--gan_epochs", type=int, default=10, help="number of epochs of gan training")
-        parser.add_argument("--ret_epochs", type=int, default=10, help="number of epochs of gan retrieval")
-
         parser.add_argument("--batch_size", type=int, default=32, help="size of the batches")
         parser.add_argument("--lr_g", type=float, default=0.0001, help="adam: learning rate")
         parser.add_argument("--lr_d", type=float, default=0.0001, help="adam: learning rate")
@@ -94,7 +93,7 @@ class Parser():
 
         # save to the disk
 
-        prefix ='CVACTTEST{}_{}_lrg{}_lrd{}_lrr{}_batch{}_l1w{}_retl1w_{}_HN_{}_HN1decay_{}HN2decay_{}HN3decay_{}'.format(opt.g_model, opt.d_model, opt.lr_g,
+        prefix ='{}_{}_lrg{}_lrd{}_lrr{}_batch{}_l1w{}_retl1w_{}_HN_{}_HN1decay_{}HN2decay_{}HN3decay_{}'.format(opt.g_model, opt.d_model, opt.lr_g,
                                                                                                          opt.lr_d, opt.lr_r,
                                                                                                          opt.batch_size, opt.lambda_l1, opt.lambda_ret1,
                                                                                                          opt.hard_topk_ratio, opt.hard_decay1_topk_ratio,

@@ -33,10 +33,10 @@ if __name__ == '__main__':
     # Configure data loader
     composed_transforms = transforms.Compose([RandomHorizontalFlip(),
                                               ToTensor()])
-    train_dataset = CVACT(use_polar=opt.polar, isTrain=opt.isTrain, transform_op=composed_transforms)
+    train_dataset = CVACT(root= opt.data_root, all_data_list = opt.data_list, use_polar=opt.polar, isTrain=opt.isTrain, transform_op=composed_transforms)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=0)
 
-    val_dataset = CVACT(use_polar=opt.polar, isTrain=False, transform_op=ToTensor())
+    val_dataset = CVACT(root= opt.data_root, all_data_list = opt.data_list, use_polar=opt.polar, isTrain=False, transform_op=ToTensor())
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=0)
 
     log_print(

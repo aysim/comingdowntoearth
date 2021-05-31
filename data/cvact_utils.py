@@ -4,14 +4,14 @@ import numpy as np
 import cv2
 
 class CVACT(data.Dataset):
-    def __init__(self, use_polar=False, isTrain=False, transform_op=None):
+    def __init__(self, root, all_data_list, use_polar=False, isTrain=False, transform_op=None):
         self.polar = use_polar
         self.train = isTrain
         self.transform_op = transform_op
         self.posDistThr = 25
         self.posDistSqThr = self.posDistThr * self.posDistThr
-        self.root = '/usr/data/cvpr_shared/aysim/ANU_data_small_old/'
-        self.all_data_list = '/usr/data/cvpr_shared/aysim/ANU_data_small/ACT_data_structured.mat'
+        self.root = root
+        self.all_data_list = all_data_list
 
         #LOAD MAT FILE
         idx = 0

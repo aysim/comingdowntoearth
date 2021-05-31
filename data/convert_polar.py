@@ -1,3 +1,4 @@
+# Code source: https://github.com/shiyujiao/cross_view_localization_SAFA/blob/master/script/data_preparation.py
 import numpy as np
 import imageio
 import os
@@ -49,7 +50,7 @@ jj, ii = np.meshgrid(j, i)
 y = S / 2. - S / 2. / height * (height - 1 - ii) * np.sin(2 * np.pi * jj / width)
 x = S / 2. + S / 2. / height * (height - 1 - ii) * np.cos(2 * np.pi * jj / width)
 
-input_dir = './placeholder_satview_polish/'
+input_dir = './placeholder_bingmap/'
 output_dir = './placeholder_polarmap/'
 
 if not os.path.exists(output_dir):
@@ -60,7 +61,6 @@ for i, img in enumerate(images):
     signal = imageio.imread(input_dir + img)
     image = sample_bilinear(signal, x, y)
     imageio.imsave(output_dir + img, image)
-
 
 ############################ Apply Polar Transform to Aerial Images in CVACT Dataset #############################
 S = 1200
@@ -71,8 +71,8 @@ i = np.arange(0, height)
 j = np.arange(0, width)
 jj, ii = np.meshgrid(j, i)
 
-y = S/2. - S/2./height*(height-1-ii)*np.sin(2*np.pi*jj/width)
-x = S/2. + S/2./height*(height-1-ii)*np.cos(2*np.pi*jj/width)
+y = S / 2. - S / 2. / height * (height - 1 - ii) * np.sin(2 * np.pi * jj / width)
+x = S / 2. + S / 2. / height * (height - 1 - ii) * np.cos(2 * np.pi * jj / width)
 
 input_dir = './placeholder_satview_polish/'
 output_dir = './placeholder_polarmap/'
@@ -85,7 +85,6 @@ for i, img in enumerate(images):
     signal = imageio.imread(input_dir + img)
     image = sample_bilinear(signal, x, y)
     imageio.imsave(output_dir + img, image)
-
 
 ############################ Prepare Street View Images in CVACT to Accelerate Training Time #############################
 import cv2

@@ -128,7 +128,7 @@ class RGANWrapper(BaseModel):
         if last_ckpt:
             ckpt_name = 'rgan_last_ckpt.pth'
         elif is_best:
-            ckpt_name = 'cvusa_best_ckpt.pth'
+            ckpt_name = 'rgan_best_ckpt.pth'
         else:
             ckpt_name = 'rgan_ckpt_ep{}.pth'.format(epoch + 1)
         ckpt_path = os.path.join(out_dir, ckpt_name)
@@ -143,8 +143,6 @@ class RGANWrapper(BaseModel):
 
         self.opt.start_epoch = ckpt['last_epoch'] + 1
         self.ret_best_acc = ckpt['best_acc']
-        #print(
-        #    'Load ckpt from {}, reset start epoch {}, best acc {}'.format(ckpt_path, self.opt.start_epoch, self.ret_best_acc))
 
         # Load net state
         generator_dict = ckpt['generator_model_dict']
