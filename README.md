@@ -21,11 +21,10 @@ To test use our architecture use the pretained models, given above, and run `cvu
 <h3> Cite </h3>
 If you use our implementation, please cite:
 ```
-@inproceedings{eisenberger2020smooth,
-  title={Smooth Shells: Multi-Scale Shape Registration with Functional Maps},
-  author={Eisenberger, Marvin and Lahner, Zorah and Cremers, Daniel},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={12265--12274},
-  year={2020}
+@article{toker2021coming,
+  title={Coming Down to Earth: Satellite-to-Street View Synthesis for Geo-Localization},
+  author={Toker, Aysim and Zhou, Qunjie and Maximov, Maxim and Leal-Taix{\'e}, Laura},
+  journal={arXiv preprint arXiv:2103.06818},
+  year={2021}
 }
 ```
