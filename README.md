@@ -9,4 +9,22 @@ The code has been implemented & tested with Python 3.6.9 and Pytorch 1.5.0.
 <li> In our experiments, we use CVUSA and CVACT datasets. Use <a href="https://github.com/viibridges/crossnet">this link</a> to reach the CVUSA dataset and use <a href="https://github.com/Liumouliu/OriCNN">this link</a> to reach the CVACT dataset. </li>
 <li> Change dataset paths under helper/parser.py and helper/parser_cvact.py. </li>
 <li> The polar transformation script is copied from https://github.com/shiyujiao/cross_view_localization_SAFA/blob/master/script/data_preparation.py, you can find it /data/convert_polar.py </li>
+</ul>
 <h3> Pretrained Models </h3>
+<h3> Train </h3>
+<ul>
+<li> For CVUSA, use train_synthesis_cvusa.py </li>
+<li> For CVACT, use rain_synthesis_cvact.py </li>
+</ul>
+<h3> Test </h3>
+To test use our architecture use the pretained models, given above, and run cvusa_test.py and cvact_test.pycd deep  
+
+If you use our implementation, please cite:
+```
+@article{toker2021coming,
+  title={Coming Down to Earth: Satellite-to-Street View Synthesis for Geo-Localization},
+  author={Toker, Aysim and Zhou, Qunjie and Maximov, Maxim and Leal-Taix{\'e}, Laura},
+  journal={arXiv preprint arXiv:2103.06818},
+  year={2021}
+}
+```
