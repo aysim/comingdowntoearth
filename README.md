@@ -4,6 +4,6 @@ Implementation of the CVPR 2021 paper <a href="https://arxiv.org/pdf/2103.06818.
 <h3> Dependencies </h3>
 The code has been implemented & tested with Python 3.6.9 and Pytorch 1.5.0.
 <h3> Usage </h3>
-<h4> Datasets </h4>
-<p> For CVUSA dataset: Use <a href="https://github.com/viibridges/crossnet">page</a>.</p>
-<p> For CVACT dataset: Use <a href="https://github.com/Liumouliu/OriCNN">page</a>.</p>
+<h4> Datasets and Polar transformation</h4>
+<p> In our experiments, we use CVUSA and CVACT datasets. Use <a href="https://github.com/viibridges/crossnet">this link</a> to reach the CVUSA dataset and use <a href="https://github.com/Liumouliu/OriCNN">link</a>to reach the CVACT dataset.</p>
+
