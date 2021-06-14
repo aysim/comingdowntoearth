@@ -13,11 +13,11 @@ The code has been implemented & tested with Python 3.6.9 and Pytorch 1.5.0.
 <h3> Pretrained Models </h3>
 <h3> Train </h3>
 <ul>
-<li> For CVUSA, use train_synthesis_cvusa.py </li>
-<li> For CVACT, use rain_synthesis_cvact.py </li>
+<li> For CVUSA, use `train_synthesis_cvusa.py` </li>
+<li> For CVACT, use `train_synthesis_cvact.py` </li>
 </ul>
 <h3> Test </h3>
-To test use our architecture use the pretained models, given above, and run 'cvusa_test.py' and 'cvact_test.py'.
+To test use our architecture use the pretained models, given above, and run `cvusa_test.py` and `cvact_test.py`.
 <h3> Cite </h3>
 If you use our implementation, please cite:
 ```
