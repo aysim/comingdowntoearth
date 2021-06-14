@@ -17,8 +17,8 @@ The code has been implemented & tested with Python 3.6.9 and Pytorch 1.5.0.
 <li> For CVACT, use rain_synthesis_cvact.py </li>
 </ul>
 <h3> Test </h3>
-To test use our architecture use the pretained models, given above, and run cvusa_test.py and cvact_test.pycd deep  
-
+To test use our architecture use the pretained models, given above, and run 'cvusa_test.py' and 'cvact_test.py'.
+<h3> Cite </h3>
 If you use our implementation, please cite:
 ```
 @article{toker2021coming,
