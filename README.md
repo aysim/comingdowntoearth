@@ -21,10 +21,12 @@ To test use our architecture use the pretained models, given above, and run `cvu
 <h3> Cite </h3>
 If you use our implementation, please cite:
 ```
+
 @article{toker2021coming,
   title={Coming Down to Earth: Satellite-to-Street View Synthesis for Geo-Localization},
   author={Toker, Aysim and Zhou, Qunjie and Maximov, Maxim and Leal-Taix{\'e}, Laura},
   journal={arXiv preprint arXiv:2103.06818},
   year={2021}
 }
+
 ```
