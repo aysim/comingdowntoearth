@@ -93,7 +93,6 @@ class Parser():
         print(message)
 
         # save to the disk
-
         prefix = '{}_{}_lrg{}_lrd{}_lrr{}_batch{}_l1w{}_retl1w_{}_HN_{}_HN1decay_{}HN2decay_{}HN3decay_{}'.format(opt.g_model, opt.d_model, opt.lr_g,
                                                                                                          opt.lr_d, opt.lr_r,
                                                                                                          opt.batch_size, opt.lambda_l1, opt.lambda_ret1,
