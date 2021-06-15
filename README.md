@@ -26,10 +26,12 @@ To test our architecture use the pretained models, given above, and run  `cvusa_
 ## Cite
 If you use our implementation, please cite:
 ```
-@article{toker2021coming,
-  title={Coming Down to Earth: Satellite-to-Street View Synthesis for Geo-Localization},
-  author={Toker, Aysim and Zhou, Qunjie and Maximov, Maxim and Leal-Taix{\'e}, Laura},
-  journal={arXiv preprint arXiv:2103.06818},
-  year={2021}
+@InProceedings{Toker_2021_CVPR,
+    author    = {Toker, Aysim and Zhou, Qunjie and Maximov, Maxim and Leal-Taixe, Laura},
+    title     = {Coming Down to Earth: Satellite-to-Street View Synthesis for Geo-Localization},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {6488-6497}
 }
 ```
