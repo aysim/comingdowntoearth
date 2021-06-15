@@ -6,9 +6,7 @@ from PIL import Image
 from matplotlib import pyplot
 def sample_within_bounds(signal, x, y, bounds):
     xmin, xmax, ymin, ymax = bounds
-
     idxs = (xmin <= x) & (x < xmax) & (ymin <= y) & (y < ymax)
-
     sample = np.zeros((x.shape[0], x.shape[1], signal.shape[-1]))
     sample[idxs, :] = signal[x[idxs], y[idxs], :]
 
