@@ -38,8 +38,8 @@ def sample_bilinear(signal, rx, ry):
 
 ############################ Apply Polar Transform to Aerial Images in CVUSA Dataset ############################
 S = 750
-height = 112
-width = 616
+height = 224 #112
+width = 1232 #616
 
 i = np.arange(0, height)
 j = np.arange(0, width)
@@ -57,8 +57,8 @@ images = os.listdir(input_dir)
 
 for i, img in enumerate(images):
     signal = imageio.imread(input_dir + img)
-    image = sample_bilinear(signal, x, y)
-    imageio.imsave(output_dir + img, image)
+    image = sample_bilinear(signal, x, y).astype(np.uint8)
+    imageio.imwrite(output_dir + img.replace('jpg', 'png'), image)
 
 ############################ Apply Polar Transform to Aerial Images in CVACT Dataset #############################
 S = 1200
